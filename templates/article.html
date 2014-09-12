@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+       <div id="article" class="container">
+
+           {% if messages %}
+            {% for message in messages %}
+
+
+                <div class="alert alert-warning fade in" role="alert">
+                  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  {{ message }} dd
+                </div>
+            {% endfor %}
+            {% endif %}
+
+          <h1>{{ article_details.title|title }} </h1>
+           <small><a href="{{ article_details.final_url }}">{{ article_details.domain }}</a> · January 8, 2014</small>
+
+          <div class="article-desc">
+
+              {% if article_details.original_image_url  %}
+
+               <p><img src="{{ article_details.original_image_url }}"></p>
+
+              {% endif %}
+
+              {% if article_details.movies %}
+
+
+                     {{ article_details.movies }}
+
+
+
+                  <!--  {% for video in article_details.movies %}
+                        {{ video }}
+                     {% endfor %}-->
+
+
+
+              {% endif %}
+
+              {% if article_details.content  %}
+
+                 {{ article_details.content|linebreaks }}
+              {% else %}
+                <p>It doesn't look like there is something here. You can <a href="{{ article_details.final_url }}">visit the original website</a>.</p>
+              {% endif %}
+          </div>
+
+
+            {% if article_details.content|length > 500 or article_details.original_image_url  %}
+           <h1><small><a href="{{ article_details.final_url }}">{{ article_details.domain }}</a> · January 8, 2014</small></h1>
+            {% endif %}
+       </div>
+
+
+
+
+
+
+
+
+        <!--<p><strong>{{ article_details.title }}</strong><br><i>Title</i></p>
+        <p><strong>{{ article_details.final_url }}</strong><br><i>final_url</i></p>
+        <p><strong>{{ article_details.description }}</strong><br><i>description</i></p>
+        <p><strong>{{ article_details.keywords }}</strong><br><i>keywords</i></p>
+
+        <p><strong>{{ article_details.content|linebreaks }}</strong><br><i>content</i></p>
+
+        <p><strong>{{ article_details.domain }}</strong><br><i>domain</i></p>
+        <p><strong>{{ article_details.domain_link }}</strong><br><i>Tags</i></p>
+        <p><strong>{{ article_details.original_image_url }}</strong><br><i>original_image_url</i></p>
+         <p><img src="{{ article_details.original_image_url }}"><br><i>original_image_url</i></p>
+        <p><strong>{{ article_details.favicon_url }}</strong><br><i>favicon_url</i></p>
+        <p><strong>{{ article_details.movies }}</strong><br><i>movies</i></p>-->
+
+
+
+{% endblock %}

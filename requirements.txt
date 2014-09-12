@@ -1,0 +1,9 @@
+BeautifulSoup==3.2.1
+Django==1.6.6
+Pillow==2.5.3
+argparse==1.2.1
+cssselect==0.9.1
+jieba==0.33
+lxml==3.4.0
+nltk==3.0.0
+wsgiref==0.1.2

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reader + Bookmarklet App 1.0</title>
+
+   <!--<link rel="stylesheet" href="{% static "css/normalize.min.css" %}">-->
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+
+    <link rel="stylesheet" href="{% static "css/mfglabs_iconset.css" %}">
+
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+
+    <script src="{% static "js/vendor/modernizr-2.6.2.min.js" %}"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static "js/app.js" %}"></script>
+
+     <script src="{% static "js/vendor/bootstrap.js" %}"></script>
+
+    <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>-->
+
+  <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+
+
+
+
+    <div id="layout">
+        <div class="row">
+            <div class="columns">
+
+
+
+
+                {% block article %}
+
+
+
+                <div id="sidebar">
+
+                    <ul>
+
+                        <li class="active"><a href="{% url "home" %}"><i class="icon-star"></i> Home</a></li>
+                        <li><a href="{% url "add_article" %}"><i class="icon-link"></i> Add article</a></li>
+                        <li class="line"></li>
+
+                     </ul>
+
+
+
+                </div>
+
+                <div id="content">
+
+
+                    <div class="col-md-9">
+
+
+
+
+                         {% block content %}{% endblock %}
+
+
+
+                    </div>
+                     <div class="col-md-3 p-r-0">
+                     <div id="rightbar">
+                        <ul>
+                            <li>Built by <a href="http://matsitka.com">Matsitka</a></li>
+                            <li>Something can go here</li>
+                        </ul>
+                    </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+                {% endblock %}
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% if messages %}
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".alert").alert();
+    });
+</script>
+{% endif %}
+
+</body>
+</html>

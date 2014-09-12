@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+
+
+
+
+   <form method="post" enctype="multipart/form-data" class="form-article">
+
+ {% csrf_token %}
+{{ article_form.as_p }}
+
+
+
+            <input class="btn btn-submit" type="submit" name="goosesubmit" value="Add">
+         <a href="{% url "home" %}" class="cancel-article">Cancel</a>
+
+
+
+
+  </form>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% load humanize %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+
+
+    <div class="alert alert-warning fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      {{ message }} dd
+    </div>
+{% endfor %}
+{% endif %}
+
+
+        {% if not all_articles %}
+         <div id="article" class="container">
+            <div class="article-desc">
+
+                <p>Howdie,</p>
+                <p>it doesn't look like there is something here.
+                    <br>Try addding <a href="{% url "add_article" %}">your first link <i class="icon-link"></i></a>.</p>
+
+          </div>
+         </div>
+        {% endif %}
+
+
+
+        <ul>
+
+        {% for item in all_articles %}
+
+             <li>
+                <div class="title"><a href="/article/{{ item.random }}/">{{ item.title|title }}</a></div>
+                <div class="link"><a href="{{ item.final_url }}">{{ item.domain }}</a></div>
+                 {% if item.description %}
+                     <div class="desc">{{ item.description | truncatechars:200 }}</div>
+                 {% endif %}
+
+                <div class="date">{{ item.created_at|naturaltime }} · 2 min read </div>
+
+                 <div class="date option">
+                    <div class="article-menu">
+
+                     <span><i class="icon-file_close_alt"></i></span>
+                     <span><i class="icon-heart"></i></span>
+                     <span><i class="icon-newspaper"></i></span>
+                     <span><i class="icon-trash_can"></i></span>
+                     <span><i class="icon-share"></i></span>
+                    </div>
+
+                </div>
+
+
+
+            </li>
+
+
+        {% endfor %}
+
+        </ul>
+
+
+{% endblock %}
+
