@@ -1,10 +1,10 @@
-Django-Goose - Article Extractor |Build Status|
+Django-Goose - Article Extractor
 ===============================================
 
 Intro
 -----
 
-This is a Django version of the Python-Goose extractor from <https://github.com/grangier/python-goose>
+This is a Django version of the Python-Goose extractor from https://github.com/grangier/python-goose
 
 Setup
 -----
@@ -27,6 +27,6 @@ TODO
 Contact
 ----
 
-- <http://matsitka.com>
-- <hi@matsitka.com>
-- <http://twitter.com/matsitka>
+- http://matsitka.com
+- hi@matsitka.com
+- http://twitter.com/matsitka
